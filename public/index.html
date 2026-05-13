@@ -244,14 +244,18 @@ h1, h2, h3, .font-display {
 <!-- VISTA INICIO -->
 <div id="view-inicio" class="view active">
   <!-- Hero -->
-  <div class="relative overflow-hidden" style="background-color: #FFA8E8;">
-    <!-- Banner ilustrado (proporción natural 2240x418, ancho 100%) -->
+  <div class="relative overflow-hidden" style="background-color: #FFA8E8; min-height: 70vh;">
+    <!-- Banner ilustrado de fondo (1920x1080) -->
     <img src="uploads/banner-home.jpg"
-         alt="Día del Patrimonio en la Posta Central — ilustraciones del HUAP"
-         class="block w-full h-auto select-none"
+         alt=""
+         aria-hidden="true"
+         class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
          onerror="this.style.display='none'">
 
-    <div class="relative max-w-7xl mx-auto px-6 sm:px-12 pt-10 pb-16 sm:pt-14 sm:pb-24 z-10">
+    <!-- Veladura suave para legibilidad del contenido -->
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(255,168,232,0.05) 0%, rgba(255,168,232,0.55) 60%, rgba(255,168,232,0.85) 100%);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6 sm:px-12 py-16 sm:py-24 z-10">
       <div class="max-w-3xl mx-auto text-center">
       <!-- Badge fecha (texto en azul #1F59FF) -->
       <div class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-widest mb-8 shadow-xl bg-white"
