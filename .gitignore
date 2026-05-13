@@ -19,3 +19,11 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+
+# Git operation logs
+git-push.log
+git-push.err
+npm-out.log
+npm-install.log
+npm-install.err
+npm-pid.txt
