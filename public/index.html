@@ -50,8 +50,9 @@ tailwind.config = {
           mid: '#f4d0d1',
         },
         patrimonio: {
-          pink: '#F5C4D4',
+          pink: '#FFA8E8',
           navy: '#1E3A5F',
+          blue: '#1F59FF',
           yellow: '#FFD644',
           orange: '#FF5733',
           cream: '#FFF9E8',
@@ -74,8 +75,9 @@ tailwind.config = {
   --color-rojo-mid: #f4d0d1;
   --color-dorado: #b8860b;
   --color-dorado-light: #fdf8ea;
-  --color-patrimonio-pink: #F5C4D4;
+  --color-patrimonio-pink: #FFA8E8;
   --color-patrimonio-navy: #1E3A5F;
+  --color-patrimonio-blue: #1F59FF;
   --color-patrimonio-yellow: #FFD644;
   --color-patrimonio-orange: #FF5733;
   --color-patrimonio-cream: #FFF9E8;
@@ -217,38 +219,43 @@ h1, h2, h3, .font-display {
 <!-- VISTA INICIO -->
 <div id="view-inicio" class="view active">
   <!-- Hero -->
-  <div class="relative overflow-hidden" style="min-height: 70vh; background: linear-gradient(135deg, #F5C4D4 0%, #FFE8F0 50%, #FFF9E8 100%);">
-    <!-- Background illustration layer with gradient opacity -->
-    <div class="absolute inset-0">
-      <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 15%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.9) 100%);">
-      </div>
-      <img src="uploads/Diseño sin título (5).png" alt="" class="absolute left-0 top-0 h-full w-auto object-cover object-left-top">
-    </div>
-    
-    <!-- Subtle gradient overlay for text contrast -->
-    <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(245,196,212,0.25) 0%, rgba(245,196,212,0.15) 40%, rgba(255,249,232,0.2) 100%);"></div>
-    
-    <div class="relative max-w-7xl mx-auto px-6 sm:px-12 py-20 sm:py-28 z-10">
+  <div class="relative overflow-hidden" style="min-height: 70vh; background-color: #FFA8E8;">
+    <!-- Banner ilustrado de fondo -->
+    <img src="uploads/banner-home.png" alt="" aria-hidden="true"
+         class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
+         style="opacity: 1;"
+         onerror="this.style.display='none'">
+
+    <!-- Veladura para legibilidad sobre las ilustraciones -->
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(255,168,232,0.05) 0%, rgba(255,168,232,0.55) 55%, rgba(255,168,232,0.85) 100%);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6 sm:px-12 py-16 sm:py-24 z-10">
       <div class="max-w-3xl mx-auto text-center">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-widest mb-8 shadow-xl" style="background: rgba(30,58,95,0.92); color: white;">
+      <!-- Badge fecha (texto en azul #1F59FF) -->
+      <div class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-widest mb-8 shadow-xl bg-white"
+           style="color: #1F59FF;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
         </svg>
         Sábado 30 de Mayo · 8:30 a 16:00 hrs
       </div>
 
-      <!-- Title -->
-      <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none mb-6" style="color: var(--color-patrimonio-navy); text-shadow: 0 2px 30px rgba(255,255,255,0.9), 0 4px 60px rgba(255,255,255,0.7);">
-        DÍA DEL<br>
-        <span class="inline-block mt-2" style="color: var(--color-patrimonio-orange); text-shadow: 0 2px 30px rgba(255,255,255,0.9), 0 4px 60px rgba(255,255,255,0.7);">PATRIMONIO</span>
-      </h1>
-      
-      <div class="w-24 h-1.5 mx-auto mb-6 rounded-full shadow-lg" style="background: linear-gradient(to right, var(--color-patrimonio-navy), var(--color-patrimonio-orange));"></div>
-      
-      <p class="font-display text-2xl sm:text-3xl md:text-4xl font-semibold mb-8" style="color: var(--color-patrimonio-navy); text-shadow: 0 2px 20px rgba(255,255,255,0.8);">
-        En la Posta Central
-      </p>
+      <!-- Logo principal: Día del Patrimonio en la Posta Central -->
+      <picture>
+        <img src="uploads/logo-dia-patrimonio.png"
+             alt="Día del Patrimonio en la Posta Central"
+             class="block mx-auto w-full max-w-3xl h-auto drop-shadow-2xl mb-6"
+             style="filter: drop-shadow(0 6px 24px rgba(255,255,255,0.55));"
+             onerror="this.parentNode.parentNode.querySelector('.logo-fallback').style.display='block'; this.style.display='none'">
+      </picture>
+
+      <!-- Fallback tipográfico si el logo PNG no carga -->
+      <div class="logo-fallback hidden" aria-hidden="true">
+        <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none mb-3" style="color: var(--color-rojo); text-shadow: 0 2px 30px rgba(255,255,255,0.9);">
+          DÍA DEL <span style="color: #1F59FF;">PATRIMONIO</span>
+        </h1>
+        <p class="font-display text-xl sm:text-2xl md:text-3xl font-semibold mb-6" style="color: #1F59FF;">EN LA POSTA CENTRAL</p>
+      </div>
 
       <!-- Subtitle -->
       <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium" style="color: rgba(30,58,95,0.95); text-shadow: 0 1px 10px rgba(255,255,255,0.7);">
