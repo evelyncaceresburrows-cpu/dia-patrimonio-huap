@@ -245,11 +245,10 @@ h1, h2, h3, .font-display {
 <div id="view-inicio" class="view active">
   <!-- Hero -->
   <div class="relative overflow-hidden" style="min-height: 70vh; background-color: #FFA8E8;">
-    <!-- Banner ilustrado de fondo (con fallback al banner anterior si banner-home.png aún no existe) -->
-    <img src="uploads/banner-home.png" alt="" aria-hidden="true"
+    <!-- Banner ilustrado de fondo -->
+    <img src="uploads/banner-home.jpg" alt="" aria-hidden="true"
          class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
-         style="opacity: 1;"
-         onerror="if(this.dataset.fb!=='1'){this.dataset.fb='1';this.src='uploads/Diseño sin título (5).png';}else{this.style.display='none';}">
+         onerror="this.style.display='none'">
 
     <!-- Veladura para legibilidad sobre las ilustraciones -->
     <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(255,168,232,0.05) 0%, rgba(255,168,232,0.55) 55%, rgba(255,168,232,0.85) 100%);"></div>
@@ -265,21 +264,11 @@ h1, h2, h3, .font-display {
         Sábado 30 de Mayo · 8:30 a 16:00 hrs
       </div>
 
-      <!-- Logo tipográfico Día del Patrimonio (estilizado inline) -->
-      <div class="logo-typeset mb-6 select-none" role="img" aria-label="Día del Patrimonio en la Posta Central">
-        <h1 class="font-display font-bold leading-[0.95] tracking-tight">
-          <span class="block text-[14vw] sm:text-[11vw] md:text-8xl lg:text-9xl">
-            <span class="logo-word">D<span class="logo-blue">Í</span>A</span>
-            <span class="logo-word logo-blue">DEL</span>
-          </span>
-          <span class="block text-[15vw] sm:text-[12vw] md:text-[7rem] lg:text-[9rem] mt-1">
-            <span class="logo-word">PA<span class="logo-blue">T</span>RIMONIO</span>
-          </span>
-        </h1>
-        <div class="mt-3 sm:mt-4 mb-2 font-display font-bold uppercase tracking-[0.08em] text-[5vw] sm:text-[3.2vw] md:text-3xl lg:text-4xl" style="color: #1F59FF;">
-          en la Posta Central
-        </div>
-      </div>
+      <!-- Logo oficial Día del Patrimonio en la Posta Central -->
+      <img src="uploads/logo-dia-patrimonio.png"
+           alt="Día del Patrimonio en la Posta Central"
+           class="block mx-auto w-full max-w-2xl lg:max-w-3xl h-auto mb-6 select-none"
+           style="filter: drop-shadow(0 6px 24px rgba(255,255,255,0.45));">
 
       <!-- Subtitle -->
       <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium" style="color: rgba(30,58,95,0.95); text-shadow: 0 1px 10px rgba(255,255,255,0.7);">
