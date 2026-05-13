@@ -261,12 +261,12 @@ h1, h2, h3, .font-display {
 <div id="view-inicio" class="view active">
   <!-- Hero -->
   <div class="relative overflow-hidden" style="background-color: #FFA8E8; min-height: 70vh;">
-    <!-- Banner ilustrado de fondo (1920x1080) -->
-    <img src="uploads/banner-home.jpg"
+    <!-- Banner ilustrado de fondo (PNG con transparencia, 2640x1485) -->
+    <img src="uploads/banner-home.png"
          alt=""
          aria-hidden="true"
          class="hero-banner-img absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-         onerror="this.style.display='none'">
+         onerror="this.src='uploads/banner-home.jpg';this.onerror=function(){this.style.display='none';};">
 
     <div class="relative max-w-7xl mx-auto px-6 sm:px-12 py-16 sm:py-24 z-10">
       <div class="max-w-3xl mx-auto text-center">
