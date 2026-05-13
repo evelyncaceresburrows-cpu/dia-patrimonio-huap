@@ -166,35 +166,26 @@ h1, h2, h3, .font-display {
 
 <!-- NAVIGATION -->
 <nav class="sticky top-0 z-50 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="flex items-center justify-between h-16 gap-4">
+  <div class="max-w-7xl mx-auto px-3 sm:px-6">
+    <!-- Top row: logo + theme toggle -->
+    <div class="flex items-center justify-between h-14 sm:h-16 gap-3">
       <!-- Logo -->
-      <a href="#inicio" class="flex items-center gap-3 no-underline flex-shrink-0" onclick="navigateTo('inicio'); return false;">
-        <img src="uploads/logo.png" alt="Logo HUAP" class="w-10 h-10 flex-shrink-0">
-        <div class="hidden sm:block">
-          <div class="font-display text-sm leading-tight text-neutral-900 dark:text-white">Posta Central</div>
-          <div class="text-xs font-medium text-rojo uppercase tracking-wide">Día de los Patrimonios 2026</div>
+      <a href="#inicio" class="flex items-center gap-2 sm:gap-3 no-underline flex-shrink-0 min-w-0" onclick="navigateTo('inicio'); return false;">
+        <img src="uploads/logo.png" alt="Logo HUAP" class="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0">
+        <div class="min-w-0">
+          <div class="font-display text-sm leading-tight text-neutral-900 dark:text-white truncate">Posta Central</div>
+          <div class="text-[10px] sm:text-xs font-medium text-rojo uppercase tracking-wide truncate">Día de los Patrimonios 2026</div>
         </div>
       </a>
 
-      <!-- Tabs -->
-      <div class="flex-1 overflow-x-auto scrollbar-hide -mx-2 px-2">
-        <div class="flex gap-1 bg-neutral-100 dark:bg-neutral-800 p-1 rounded-full min-w-max">
-          <button onclick="navigateTo('inicio')" data-view="inicio" class="nav-tab px-3 sm:px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all active">
-            Inicio
-          </button>
-          <button onclick="navigateTo('historia')" data-view="historia" class="nav-tab px-3 sm:px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">
-            Historia
-          </button>
-          <button onclick="navigateTo('recorrido')" data-view="recorrido" class="nav-tab px-3 sm:px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">
-            Recorrido
-          </button>
-          <button onclick="navigateTo('info')" data-view="info" class="nav-tab px-3 sm:px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">
-            Info
-          </button>
-          <button onclick="navigateTo('participa')" data-view="participa" class="nav-tab px-3 sm:px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">
-            Participa
-          </button>
+      <!-- Desktop tabs (md+) -->
+      <div class="hidden md:flex flex-1 overflow-x-auto scrollbar-hide -mx-2 px-2 justify-center">
+        <div class="flex gap-1 bg-neutral-100 dark:bg-neutral-800 p-1 rounded-full">
+          <button onclick="navigateTo('inicio')" data-view="inicio" class="nav-tab px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all active">Inicio</button>
+          <button onclick="navigateTo('historia')" data-view="historia" class="nav-tab px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">Historia</button>
+          <button onclick="navigateTo('recorrido')" data-view="recorrido" class="nav-tab px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">Recorrido</button>
+          <button onclick="navigateTo('info')" data-view="info" class="nav-tab px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">Info</button>
+          <button onclick="navigateTo('participa')" data-view="participa" class="nav-tab px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">Participa</button>
         </div>
       </div>
 
@@ -208,6 +199,17 @@ h1, h2, h3, .font-display {
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       </button>
+    </div>
+
+    <!-- Mobile tabs (second row, only on < md) -->
+    <div class="md:hidden pb-2 -mx-1 px-1 overflow-x-auto scrollbar-hide">
+      <div class="flex gap-1 bg-neutral-100 dark:bg-neutral-800 p-1 rounded-full min-w-max">
+        <button onclick="navigateTo('inicio')" data-view="inicio" class="nav-tab px-3 py-1.5 rounded-full text-[13px] font-medium whitespace-nowrap transition-all active">Inicio</button>
+        <button onclick="navigateTo('historia')" data-view="historia" class="nav-tab px-3 py-1.5 rounded-full text-[13px] font-medium whitespace-nowrap transition-all">Historia</button>
+        <button onclick="navigateTo('recorrido')" data-view="recorrido" class="nav-tab px-3 py-1.5 rounded-full text-[13px] font-medium whitespace-nowrap transition-all">Recorrido</button>
+        <button onclick="navigateTo('info')" data-view="info" class="nav-tab px-3 py-1.5 rounded-full text-[13px] font-medium whitespace-nowrap transition-all">Info</button>
+        <button onclick="navigateTo('participa')" data-view="participa" class="nav-tab px-3 py-1.5 rounded-full text-[13px] font-medium whitespace-nowrap transition-all">Participa</button>
+      </div>
     </div>
   </div>
 </nav>
