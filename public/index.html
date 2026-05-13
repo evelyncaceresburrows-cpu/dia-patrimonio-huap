@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Posta Central Patrimonio · HUAP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        rojo: {
+          DEFAULT: '#C0272D',
+          hover: '#9e1e23',
+          active: '#7d161b',
+          light: '#fdf0f0',
+          mid: '#f4d0d1',
+        },
+        patrimonio: {
+          pink: '#F5C4D4',
+          navy: '#1E3A5F',
+          yellow: '#FFD644',
+          orange: '#FF5733',
+          cream: '#FFF9E8',
+        }
+      },
+      fontFamily: {
+        display: ['Fredoka', 'Arial Rounded MT Bold', 'sans-serif'],
+        body: ['Inter', 'Helvetica Neue', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+:root {
+  --color-rojo: #C0272D;
+  --color-rojo-hover: #9e1e23;
+  --color-rojo-active: #7d161b;
+  --color-rojo-light: #fdf0f0;
+  --color-rojo-mid: #f4d0d1;
+  --color-dorado: #b8860b;
+  --color-dorado-light: #fdf8ea;
+  --color-patrimonio-pink: #F5C4D4;
+  --color-patrimonio-navy: #1E3A5F;
+  --color-patrimonio-yellow: #FFD644;
+  --color-patrimonio-orange: #FF5733;
+  --color-patrimonio-cream: #FFF9E8;
+}
+
+html.dark {
+  --color-rojo-light: #2a1416;
+  --color-rojo-mid: #3d1c1e;
+  --color-dorado-light: #211c0f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #FFF9E8;
+}
+
+body.dark {
+  background: #151210;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Fredoka', sans-serif;
+}
+
+.view {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.view.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: currentColor;
+  opacity: 0.15;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -21px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #C0272D;
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px #C0272D;
+}
+
+.dark .timeline-dot {
+  border-color: #1c1916;
+}
+</style>
+</head>
+<body class="text-neutral-900 dark:text-neutral-100 transition-colors duration-200" style="background: var(--color-patrimonio-cream);">
+
+<!-- NAVIGATION -->
+<nav class="sticky top-0 z-50 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16 gap-4">
+      <!-- Logo -->
+      <a href="#inicio" class="flex items-center gap-3 no-underline flex-shrink-0" onclick="navigateTo('inicio'); return false;">
+        <img src="uploads/logo.png" alt="Logo HUAP" class="w-10 h-10 flex-shrink-0">
+        <div class="hidden sm:block">
+          <div class="font-display text-sm leading-tight text-neutral-900 dark:text-white">Posta Central</div>
+          <div class="text-xs font-medium text-rojo uppercase tracking-wide">Día de los Patrimonios 2026</div>
+        </div>
+      </a>
+
+      <!-- Tabs -->
+      <div class="flex-1 overflow-x-auto scrollbar-hide -mx-2 px-2">
+        <div class="flex gap-1 bg-neutral-100 dark:bg-neutral-800 p-1 rounded-full min-w-max">
+          <button onclick="navigateTo('inicio')" data-view="inicio" class="nav-tab px-3 sm:px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all active">
+            Inicio
+          </button>
+          <button onclick="navigateTo('historia')" data-view="historia" class="nav-tab px-3 sm:px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">
+            Historia
+          </button>
+          <button onclick="navigateTo('recorrido')" data-view="recorrido" class="nav-tab px-3 sm:px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">
+            Recorrido
+          </button>
+          <button onclick="navigateTo('info')" data-view="info" class="nav-tab px-3 sm:px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">
+            Info
+          </button>
+          <button onclick="navigateTo('participa')" data-view="participa" class="nav-tab px-3 sm:px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">
+            Participa
+          </button>
+        </div>
+      </div>
+
+      <!-- Theme toggle -->
+      <button id="themeToggle" class="w-9 h-9 rounded-full border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors flex-shrink-0">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="sun-icon hidden">
+          <circle cx="12" cy="12" r="5"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="moon-icon">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- VISTA INICIO -->
+<div id="view-inicio" class="view active">
+  <!-- Hero -->
+  <div class="relative overflow-hidden" style="min-height: 70vh; background: linear-gradient(135deg, #F5C4D4 0%, #FFE8F0 50%, #FFF9E8 100%);">
+    <!-- Background illustration layer with gradient opacity -->
+    <div class="absolute inset-0">
+      <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 15%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.9) 100%);">
+      </div>
+      <img src="uploads/Diseño sin título (5).png" alt="" class="absolute left-0 top-0 h-full w-auto object-cover object-left-top">
+    </div>
+    
+    <!-- Subtle gradient overlay for text contrast -->
+    <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(245,196,212,0.25) 0%, rgba(245,196,212,0.15) 40%, rgba(255,249,232,0.2) 100%);"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-6 sm:px-12 py-20 sm:py-28 z-10">
+      <div class="max-w-3xl mx-auto text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-widest mb-8 shadow-xl" style="background: rgba(30,58,95,0.92); color: white;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        Sábado 30 de Mayo · 8:30 a 16:00 hrs
+      </div>
+
+      <!-- Title -->
+      <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none mb-6" style="color: var(--color-patrimonio-navy); text-shadow: 0 2px 30px rgba(255,255,255,0.9), 0 4px 60px rgba(255,255,255,0.7);">
+        DÍA DEL<br>
+        <span class="inline-block mt-2" style="color: var(--color-patrimonio-orange); text-shadow: 0 2px 30px rgba(255,255,255,0.9), 0 4px 60px rgba(255,255,255,0.7);">PATRIMONIO</span>
+      </h1>
+      
+      <div class="w-24 h-1.5 mx-auto mb-6 rounded-full shadow-lg" style="background: linear-gradient(to right, var(--color-patrimonio-navy), var(--color-patrimonio-orange));"></div>
+      
+      <p class="font-display text-2xl sm:text-3xl md:text-4xl font-semibold mb-8" style="color: var(--color-patrimonio-navy); text-shadow: 0 2px 20px rgba(255,255,255,0.8);">
+        En la Posta Central
+      </p>
+
+      <!-- Subtitle -->
+      <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium" style="color: rgba(30,58,95,0.95); text-shadow: 0 1px 10px rgba(255,255,255,0.7);">
+        Más de 115 años siendo el corazón de la salud pública de Chile. Conoce la historia, el legado y la misión del Hospital de Urgencia Asistencia Pública.
+      </p>
+      
+      <!-- Info -->
+      <div class="inline-flex items-center gap-3 rounded-2xl px-8 py-4 mb-8 shadow-xl" style="background: rgba(255,214,68,0.93);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--color-patrimonio-navy);">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <p class="font-display text-lg md:text-xl font-bold" style="color: var(--color-patrimonio-navy);">
+          Curicó 345, Santiago Centro
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-6 relative">
+        <div class="text-center rounded-2xl px-8 py-5 shadow-xl" style="background: rgba(255,255,255,0.88);">
+          <div class="font-display text-4xl sm:text-5xl font-bold mb-1" style="color: var(--color-patrimonio-navy);">1911</div>
+          <div class="text-xs uppercase tracking-widest font-bold" style="color: rgba(30,58,95,0.7);">Fundación</div>
+        </div>
+        <div class="text-center rounded-2xl px-8 py-5 shadow-xl" style="background: rgba(255,255,255,0.88);">
+          <div class="font-display text-4xl sm:text-5xl font-bold mb-1" style="color: var(--color-patrimonio-orange);">115+</div>
+          <div class="text-xs uppercase tracking-widest font-bold" style="color: rgba(30,58,95,0.7);">Años</div>
+        </div>
+        <div class="text-center rounded-2xl px-8 py-5 shadow-xl" style="background: rgba(255,255,255,0.88);">
+          <div class="font-display text-4xl sm:text-5xl font-bold mb-1" style="color: var(--color-patrimonio-navy);">24/7</div>
+          <div class="text-xs uppercase tracking-widest font-bold" style="color: rgba(30,58,95,0.7);">Activos</div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div class="max-w-5xl mx-auto px-6 py-12 sm:py-16">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold mb-3">
+      ¿Por qué la Posta Central es <span class="text-rojo">patrimonio</span>?
+    </h2>
+    <p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mb-10 leading-relaxed">
+      Fundada el 7 de agosto de 1911 por el Dr. Alejandro del Río, fue el primer servicio de urgencia permanente en Chile. Su historia es inseparable de la historia social y sanitaria del país.
+    </p>
+
+    <!-- Cards Grid -->
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      <!-- Card 1 -->
+      <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+        <img src="uploads/posta antigua.jpg" alt="Posta Central histórica" class="w-full aspect-video object-cover">
+        <div class="p-6">
+          <div class="text-xs font-semibold uppercase tracking-wider text-rojo mb-2">Hito fundacional</div>
+          <h3 class="font-display text-xl font-bold mb-3 leading-tight">El primer servicio de urgencia permanente</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+            En 1911, cuando los heridos eran llevados a cuarteles policiales, el Dr. Alejandro del Río creó el primer centro especializado de atención de emergencias en Chile, en una casona de la calle San Francisco N.º 85.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+        <img src="uploads/samu5.jpg" alt="Ambulancia histórica SAMU" class="w-full aspect-video object-cover">
+        <div class="p-6">
+          <div class="text-xs font-semibold uppercase tracking-wider text-rojo mb-2">Innovación en salud pública</div>
+          <h3 class="font-display text-xl font-bold mb-3 leading-tight">Cuna del SAMU en Chile</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+            Desde 1976 administra el Servicio de Urgencia de Ambulancias (SUA). En 1995 inauguró el Sistema de Atención Médica de Urgencia (SAMU), transformando para siempre la respuesta de emergencias en el país.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+        <img src="uploads/images.jpg" alt="Hospital HUAP actual" class="w-full aspect-video object-cover">
+        <div class="p-6">
+          <div class="text-xs font-semibold uppercase tracking-wider text-rojo mb-2">Referente nacional</div>
+          <h3 class="font-display text-xl font-bold mb-3 leading-tight">Centro de alta complejidad</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+            Principal punto de derivación nacional del sistema público para pacientes politraumatizados y quemados. Atiende patologías cardiovasculares, accidentes y violencia las 24 horas, todos los días del año.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote Block -->
+    <div class="border-l-4 border-rojo rounded-r-xl p-6 my-12" style="background: var(--color-rojo-light);">
+      <p class="font-display italic text-xl sm:text-2xl leading-relaxed text-neutral-900 dark:text-neutral-100 max-w-3xl">
+        "Un hecho trascendental para la consolidación de la asistencia hospitalaria moderna."
+      </p>
+      <cite class="block mt-4 text-xs text-neutral-600 dark:text-neutral-400 not-italic uppercase tracking-wider">
+        — Dr. Ricardo Cruz Coke, sobre la inauguración de la Posta Central (1911)
+      </cite>
+    </div>
+  </div>
+</div>
+
+<!-- VISTA HISTORIA -->
+<div id="view-historia" class="view">
+  <div class="max-w-4xl mx-auto px-6 py-12 sm:py-16">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold mb-3">
+      Línea del <span class="text-rojo">tiempo</span>
+    </h2>
+    <p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mb-12 leading-relaxed">
+      Más de un siglo de historia que refleja la evolución de la salud pública, la medicina y la sociedad chilena.
+    </p>
+
+    <!-- Timeline -->
+    <div class="relative pl-8 timeline text-neutral-600 dark:text-neutral-400">
+      <!-- Item 1 -->
+      <div class="relative mb-10">
+        <div class="timeline-dot"></div>
+        <div class="text-xs font-bold text-rojo uppercase tracking-wider mb-1">Inicios del siglo XX</div>
+        <h3 class="font-display text-xl sm:text-2xl font-semibold mb-3 leading-tight text-neutral-900 dark:text-white">
+          El problema que originó la Posta
+        </h3>
+        <p class="text-sm sm:text-base leading-relaxed max-w-2xl">
+          Antes de su fundación, los heridos y accidentados eran llevados por la policía municipal a cuarteles. Al no tener ambulancias, detenían carruajes en la vía pública. Estudiantes de medicina en los cuarteles daban la primera atención; de ahí el nombre "Asistencia Pública".
+        </p>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="relative mb-10">
+        <div class="timeline-dot"></div>
+        <div class="text-xs font-bold text-rojo uppercase tracking-wider mb-1">7 de agosto de 1911</div>
+        <h3 class="font-display text-xl sm:text-2xl font-semibold mb-3 leading-tight text-neutral-900 dark:text-white">
+          Fundación en calle San Francisco
+        </h3>
+        <p class="text-sm sm:text-base leading-relaxed max-w-2xl">
+          El Dr. Alejandro del Río Soto-Aguilar inaugura el primer servicio de urgencia permanente de Chile en una casona de San Francisco N.º 85. El Dr. Ricardo Cruz Coke lo califica como "la figura médica de mayor nivel profesional y académico en el ámbito de la higiene y la salubridad pública".
+        </p>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="relative mb-10">
+        <div class="timeline-dot"></div>
+        <div class="text-xs font-bold text-rojo uppercase tracking-wider mb-1">Mayo de 1932</div>
+        <h3 class="font-display text-xl sm:text-2xl font-semibold mb-3 leading-tight text-neutral-900 dark:text-white">
+          La gran colecta ciudadana
+        </h3>
+        <p class="text-sm sm:text-base leading-relaxed max-w-2xl">
+          En uno de los momentos más dramáticos, las ambulancias fueron embargadas por deudas. La institución lanzó una campaña ciudadana histórica: volantes lanzados desde aviones, funciones de teatro, partidos de fútbol, desfiles de ambulancias con sirenas. La comunidad respondió con creces y salvó a la Posta.
+        </p>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="relative mb-10">
+        <div class="timeline-dot"></div>
+        <div class="text-xs font-bold text-rojo uppercase tracking-wider mb-1">15 de diciembre de 1967</div>
+        <h3 class="font-display text-xl sm:text-2xl font-semibold mb-3 leading-tight text-neutral-900 dark:text-white">
+          Traslado a calle Portugal
+        </h3>
+        <p class="text-sm sm:text-base leading-relaxed max-w-2xl">
+          Tras décadas en San Francisco, la institución se traslada a su actual emplazamiento en calle Portugal, donde permanece hasta el cambio de 2019 que reubicó la entrada de urgencias.
+        </p>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="relative mb-10">
+        <div class="timeline-dot"></div>
+        <div class="text-xs font-bold text-rojo uppercase tracking-wider mb-1">1976</div>
+        <h3 class="font-display text-xl sm:text-2xl font-semibold mb-3 leading-tight text-neutral-900 dark:text-white">
+          Nace el Servicio de Urgencia de Ambulancias
+        </h3>
+        <p class="text-sm sm:text-base leading-relaxed max-w-2xl">
+          El HUAP asume la administración del SUA, consolidando su rol como centro logístico de emergencias médicas en Santiago y ampliando su capacidad de respuesta prehospitalaria.
+        </p>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="relative mb-10">
+        <div class="timeline-dot"></div>
+        <div class="text-xs font-bold text-rojo uppercase tracking-wider mb-1">1993</div>
+        <h3 class="font-display text-xl sm:text-2xl font-semibold mb-3 leading-tight text-neutral-900 dark:text-white">
+          El nombre oficial: HUAP
+        </h3>
+        <p class="text-sm sm:text-base leading-relaxed max-w-2xl">
+          La Posta Central institucionaliza su nombre actual: Hospital de Urgencia Asistencia Pública (HUAP). Sin embargo, el afecto popular preserva hasta hoy su denominación histórica como "la Posta Central".
+        </p>
+      </div>
+
+      <!-- Item 7 -->
+      <div class="relative mb-10">
+        <div class="timeline-dot"></div>
+        <div class="text-xs font-bold text-rojo uppercase tracking-wider mb-1">1995</div>
+        <h3 class="font-display text-xl sm:text-2xl font-semibold mb-3 leading-tight text-neutral-900 dark:text-white">
+          Creación del SAMU
+        </h3>
+        <p class="text-sm sm:text-base leading-relaxed max-w-2xl">
+          El HUAP inaugura el Sistema de Atención Médica de Urgencias (SAMU), transformando la respuesta prehospitalaria en Chile y convirtiéndose en referente latinoamericano de sistemas integrados de emergencia.
+        </p>
+      </div>
+
+      <!-- Item 8 -->
+      <div class="relative mb-10">
+        <div class="timeline-dot"></div>
+        <div class="text-xs font-bold text-rojo uppercase tracking-wider mb-1">Hoy — 2026</div>
+        <h3 class="font-display text-xl sm:text-2xl font-semibold mb-3 leading-tight text-neutral-900 dark:text-white">
+          115 años y presente
+        </h3>
+        <p class="text-sm sm:text-base leading-relaxed max-w-2xl">
+          El HUAP sigue siendo el principal establecimiento de urgencias médicas de adultos de la Región Metropolitana. Patrimonio vivo de Chile: un hospital que no descansa, que atiende las 24 horas y que carga en su historia la memoria del Chile que sana.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VISTA RECORRIDO -->
+<div id="view-recorrido" class="view">
+  <div class="max-w-4xl mx-auto px-6 py-12 sm:py-16">
+    <!-- Header -->
+    <div class="rounded-2xl border p-6 sm:p-8 mb-10" style="background: linear-gradient(135deg, var(--color-rojo-light), var(--color-dorado-light)); border-color: var(--color-rojo-mid);">
+      <h2 class="font-display text-2xl sm:text-3xl font-bold mb-3">🗺️ Recorrido Patrimonial</h2>
+      <p class="text-neutral-700 dark:text-neutral-300 text-sm sm:text-base leading-relaxed max-w-2xl mb-4">
+        El Día del Patrimonio contará con 2 áreas temáticas interactivas y recorridos guiados. Ideal para conocer la historia y el alma del HUAP con tiempo y curiosidad.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-rojo-light); color: var(--color-rojo);">
+          ⏱ 8:30 a 16:00 hrs
+        </span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-dorado-light); color: var(--color-dorado);">
+          📍 Gratis
+        </span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-rojo-light); color: var(--color-rojo);">
+          🗓 Sábado 30 de Mayo
+        </span>
+      </div>
+    </div>
+
+    <!-- Route Steps -->
+    <div class="flex flex-col gap-4">
+      <!-- Step 1: Área Patrimonial -->
+      <div class="flex gap-4 sm:gap-5 items-start bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-5 shadow-sm">
+        <div class="w-8 h-8 rounded-full bg-rojo text-white flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-base sm:text-lg mb-2">Área Patrimonial</h3>
+          <div class="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+            <p><strong>Anatomía Patológica</strong> (Piso -1)</p>
+            <p><strong>Dirección</strong> (Piso 2)</p>
+          </div>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: var(--color-rojo-light); color: var(--color-rojo);">
+            🏛 Historia y documentos
+          </span>
+        </div>
+      </div>
+
+      <!-- Step 2: Área Educativa -->
+      <div class="flex gap-4 sm:gap-5 items-start bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-5 shadow-sm">
+        <div class="w-8 h-8 rounded-full bg-rojo text-white flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-base sm:text-lg mb-2">Área Educativa</h3>
+          <div class="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+            <p><strong>Banco de Sangre</strong> (Piso 1)</p>
+            <p><strong>Cine-Auditorio</strong> (Piso 2)</p>
+            <p><strong>RCP</strong> (Helipuerto)</p>
+          </div>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: var(--color-rojo-light); color: var(--color-rojo);">
+            📚 Aprendizaje en salud
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VISTA INFORMACIÓN -->
+<div id="view-info" class="view">
+  <div class="max-w-5xl mx-auto px-6 py-12 sm:py-16">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold mb-3">
+      Información <span class="text-rojo">práctica</span>
+    </h2>
+    <p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mb-10 leading-relaxed">
+      Todo lo que necesitas saber para visitar el HUAP en el Día de los Patrimonios y para futuros contactos con la institución.
+    </p>
+
+    <!-- Info Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Card 1 -->
+      <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background: var(--color-rojo-light); color: var(--color-rojo);">
+          📍
+        </div>
+        <h3 class="font-display text-lg font-semibold mb-3">Dirección y acceso</h3>
+        <address class="not-italic text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+          <strong class="text-neutral-900 dark:text-white">Av. Portugal 125</strong><br>
+          Santiago Centro, Región Metropolitana<br><br>
+          <strong class="text-neutral-900 dark:text-white">Metro más cercano:</strong> Universidad Católica (Línea 1) · 2–5 min a pie<br>
+          <strong class="text-neutral-900 dark:text-white">Alternativa:</strong> Baquedano (L1 / L5) · 7 min a pie<br>
+          <strong class="text-neutral-900 dark:text-white">Urgencias (desde 2025):</strong> ingreso por Curicó 345, edificio Monseñor Valech
+        </address>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background: var(--color-rojo-light); color: var(--color-rojo);">
+          🕐
+        </div>
+        <h3 class="font-display text-lg font-semibold mb-3">Horario Día del Patrimonio</h3>
+        <div class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+          <strong class="text-neutral-900 dark:text-white">Actividades patrimoniales:</strong><br>
+          10:00 – 17:00 hrs<br><br>
+          <strong class="text-neutral-900 dark:text-white">Recorrido guiado:</strong><br>
+          11:00 y 14:00 hrs (máx. 20 personas)<br><br>
+          <strong class="text-neutral-900 dark:text-white">Conversatorio:</strong> 15:00 hrs<br>
+          <span class="text-rojo font-semibold">⚡ Urgencias activas 24/7</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background: var(--color-rojo-light); color: var(--color-rojo);">
+          📞
+        </div>
+        <h3 class="font-display text-lg font-semibold mb-3">Contacto institucional</h3>
+        <div class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+          <strong class="text-neutral-900 dark:text-white">Sitio web:</strong><br>
+          <a href="https://huap.redsalud.gob.cl" target="_blank" rel="noopener noreferrer" class="text-rojo hover:underline font-medium">huap.redsalud.gob.cl</a><br><br>
+          <strong class="text-neutral-900 dark:text-white">OIRS (reclamos y sugerencias):</strong><br>
+          Disponible en el establecimiento<br><br>
+          <strong class="text-neutral-900 dark:text-white">SAMU:</strong> <a href="tel:131" class="text-rojo hover:underline font-medium">131</a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background: var(--color-rojo-light); color: var(--color-rojo);">
+          🩸
+        </div>
+        <h3 class="font-display text-lg font-semibold mb-3">Donar sangre</h3>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+          El HUAP cuenta con banco de sangre permanente. Donar es un acto patrimonial también.<br><br>
+          <a href="https://huap.redsalud.gob.cl/servicios/donar-sangre/" target="_blank" rel="noopener noreferrer" class="text-rojo hover:underline font-medium">Ver requisitos para donar →</a>
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background: var(--color-rojo-light); color: var(--color-rojo);">
+          🤝
+        </div>
+        <h3 class="font-display text-lg font-semibold mb-3">Participación ciudadana</h3>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+          ¿Quieres involucrarte con el HUAP? La Unidad de Participación Ciudadana coordina voluntariados, convenios académicos y actividades comunitarias.<br><br>
+          Plan de Participación 2026–2027 activo.
+        </p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background: var(--color-rojo-light); color: var(--color-rojo);">
+          ♿
+        </div>
+        <h3 class="font-display text-lg font-semibold mb-3">Accesibilidad</h3>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+          El recorrido patrimonial está diseñado para ser accesible. Comunica necesidades específicas al momento de la inscripción.<br><br>
+          Intérprete de lengua de señas disponible en el conversatorio de las 15:00 hrs.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===== Cómo llegar ===== -->
+    <section id="como-llegar" class="mt-14">
+      <h3 class="font-display text-2xl sm:text-3xl font-bold mb-3">
+        Cómo <span class="text-rojo">llegar</span>
+      </h3>
+      <p class="text-base text-neutral-600 dark:text-neutral-400 max-w-3xl mb-8 leading-relaxed">
+        La Posta Central (HUAP) está en pleno corazón cívico de Santiago, junto al Parque Bustamante y al campus Casa Central de la Universidad Católica. La forma más rápida y verificable de llegar es en Metro Línea 1.
+      </p>
+
+      <div class="grid lg:grid-cols-5 gap-6">
+        <!-- Mapa -->
+        <div class="lg:col-span-3">
+          <div class="relative w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-sm" style="aspect-ratio: 16 / 10;">
+            <iframe
+              title="Mapa Hospital de Urgencia Asistencia Pública (HUAP / Posta Central) — Av. Portugal 125, Santiago Centro"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-70.6420%2C-33.4445%2C-70.6300%2C-33.4365&amp;layer=mapnik&amp;marker=-33.44070%2C-70.63600"
+              style="border:0; position:absolute; inset:0; width:100%; height:100%;"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+          <div class="mt-3 flex flex-wrap gap-3 text-sm">
+            <a href="https://www.openstreetmap.org/?mlat=-33.44070&amp;mlon=-70.63600#map=17/-33.44070/-70.63600"
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ver mapa en OpenStreetMap
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Hospital+de+Urgencia+Asistencia+P%C3%BAblica+HUAP+Av+Portugal+125+Santiago"
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rojo hover:bg-rojo-hover text-white transition-colors">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              Abrir en Google Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- Indicaciones -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-5">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0" style="background: var(--color-rojo-light); color: var(--color-rojo);">🚇</div>
+              <div>
+                <h4 class="font-semibold mb-1">En Metro</h4>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  Línea 1 → estación <strong class="text-neutral-900 dark:text-white">Universidad Católica</strong>. Salida sur, 2–5 minutos a pie por Av. Portugal. Alternativa: <strong>Baquedano</strong> (L1/L5), 7 min caminando.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-5">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0" style="background: var(--color-rojo-light); color: var(--color-rojo);">🚌</div>
+              <div>
+                <h4 class="font-semibold mb-1">En micro / Red Movilidad</h4>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  Múltiples recorridos por Av. Libertador Bernardo O'Higgins (Alameda) y Av. Vicuña Mackenna. Paradero referencial: <strong class="text-neutral-900 dark:text-white">PA532 – Parada 1 / Posta Central</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-5">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0" style="background: var(--color-rojo-light); color: var(--color-rojo);">🚗</div>
+              <div>
+                <h4 class="font-semibold mb-1">En auto</h4>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  Estacionamientos privados en torno a Curicó y Portugal. El sector tiene tránsito alto durante el Día del Patrimonio: se recomienda Metro.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-5">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0" style="background: var(--color-rojo-light); color: var(--color-rojo);">📍</div>
+              <div>
+                <h4 class="font-semibold mb-1">Referencias urbanas</h4>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  Frente al Parque Bustamante, contiguo a Casa Central UC. La fachada histórica da a <strong class="text-neutral-900 dark:text-white">Av. Portugal 125</strong>; las urgencias funcionan desde 2025 en <strong>Curicó 345</strong> (edificio Monseñor Valech).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- VISTA PARTICIPA -->
+<div id="view-participa" class="view">
+  <div class="max-w-4xl mx-auto px-6 py-12 sm:py-16">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold mb-3">
+      Tu <span class="text-rojo">voz</span> importa
+    </h2>
+    <p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mb-10 leading-relaxed">
+      El patrimonio se construye entre todos. Comparte tu historia, recuerdo o testimonio vinculado a la Posta Central. Tu relato pasa a formar parte del archivo histórico del HUAP.
+    </p>
+
+    <!-- Form -->
+    <div class="max-w-xl">
+      <form id="participaForm" class="space-y-6">
+        <!-- Nombre -->
+        <div>
+          <label for="nombre" class="block text-sm font-semibold mb-2">
+            Tu nombre <span class="text-rojo">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="nombre" 
+            name="nombre" 
+            required 
+            placeholder="Nombre y apellido"
+            class="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-rojo/30 focus:border-rojo transition-colors"
+          >
+        </div>
+
+        <!-- Vínculo -->
+        <div>
+          <label for="vinculo" class="block text-sm font-semibold mb-2">
+            ¿Cuál es tu vínculo con la Posta Central?
+          </label>
+          <select 
+            id="vinculo" 
+            name="vinculo"
+            class="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-rojo/30 focus:border-rojo transition-colors"
+          >
+            <option value="">Selecciona una opción</option>
+            <option>Paciente o familiar de paciente</option>
+            <option>Funcionario/a actual o exfuncionario/a</option>
+            <option>Estudiante o docente en formación</option>
+            <option>Voluntario/a</option>
+            <option>Vecino/a del sector</option>
+            <option>Ciudadano/a interesado/a</option>
+          </select>
+        </div>
+
+        <!-- Testimonio -->
+        <div>
+          <label for="testimonio" class="block text-sm font-semibold mb-2">
+            Tu testimonio o recuerdo <span class="text-rojo">*</span>
+          </label>
+          <textarea 
+            id="testimonio" 
+            name="testimonio" 
+            rows="5" 
+            required 
+            placeholder="Cuéntanos tu historia o recuerdo vinculado al HUAP..."
+            class="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-rojo/30 focus:border-rojo transition-colors resize-y"
+          ></textarea>
+        </div>
+
+        <!-- Año -->
+        <div>
+          <label for="anio" class="block text-sm font-semibold mb-2">
+            ¿En qué período fue tu experiencia? (aproximado)
+          </label>
+          <input 
+            type="text" 
+            id="anio" 
+            name="anio" 
+            placeholder="Ej: 1995, década del 2000, etc."
+            class="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-rojo/30 focus:border-rojo transition-colors"
+          >
+        </div>
+
+        <!-- Checkbox -->
+        <div class="flex items-start gap-3">
+          <input 
+            type="checkbox" 
+            id="autorizacion" 
+            required 
+            class="w-5 h-5 mt-0.5 rounded border-neutral-300 dark:border-neutral-700 text-rojo focus:ring-2 focus:ring-rojo/30 flex-shrink-0"
+            style="accent-color: var(--color-rojo);"
+          >
+          <label for="autorizacion" class="text-xs text-neutral-600 dark:text-neutral-400">
+            Autorizo al HUAP a incluir mi testimonio en el archivo patrimonial de la institución.
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          class="inline-flex items-center gap-2 bg-rojo hover:bg-rojo-hover active:bg-rojo-active text-white font-semibold px-6 py-3 rounded-full transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+          Enviar mi testimonio
+        </button>
+
+        <!-- Success Message -->
+        <div id="successMsg" class="hidden border rounded-lg p-4 text-sm font-semibold" style="background: var(--color-rojo-light); border-color: var(--color-rojo-mid); color: var(--color-rojo);">
+          ✅ ¡Gracias! Tu testimonio ha sido registrado y forma parte del archivo patrimonial del HUAP. Lo revisaremos con respeto y cuidado.
+        </div>
+      </form>
+    </div>
+
+    <!-- Divider -->
+    <hr class="border-neutral-200 dark:border-neutral-800 my-12">
+
+    <!-- Additional CTAs -->
+    <h3 class="font-display text-2xl font-bold mb-6">¿Quieres hacer más?</h3>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <!-- CTA 1 -->
+      <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden shadow-sm">
+        <div class="aspect-video flex items-center justify-center text-6xl" style="background: var(--color-rojo-light);">
+          🩸
+        </div>
+        <div class="p-6">
+          <div class="text-xs font-semibold uppercase tracking-wider text-rojo mb-2">Dona sangre</div>
+          <h3 class="font-display text-xl font-bold mb-3 leading-tight">Salva una vida hoy</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+            El banco de sangre del HUAP necesita donantes permanentes. Una donación puede salvar hasta tres vidas. Consulta los requisitos en el establecimiento.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA 2 -->
+      <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden shadow-sm">
+        <div class="aspect-video flex items-center justify-center text-6xl bg-emerald-50 dark:bg-emerald-950/30">
+          🤲
+        </div>
+        <div class="p-6">
+          <div class="text-xs font-semibold uppercase tracking-wider text-rojo mb-2">Voluntariado</div>
+          <h3 class="font-display text-xl font-bold mb-3 leading-tight">Únete a la comunidad del HUAP</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+            El HUAP cuenta con red de voluntariados coordinados por la Unidad de Participación Ciudadana. Diversas formas de aportar según tus habilidades y disponibilidad.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 py-10 px-6 text-center">
+  <img src="uploads/logo.png" alt="Logo HUAP" class="w-12 h-12 mx-auto mb-4">
+  <p class="font-semibold text-neutral-900 dark:text-white mb-2">
+    Hospital de Urgencia Asistencia Pública — Posta Central
+  </p>
+  <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">
+    Día de los Patrimonios 2026 · Unidad de Participación Ciudadana<br>
+    <a href="https://huap.redsalud.gob.cl" target="_blank" rel="noopener noreferrer" class="text-rojo hover:underline">huap.redsalud.gob.cl</a>
+  </p>
+  <p class="text-xs text-neutral-500 dark:text-neutral-500">
+    Fundado el 7 de agosto de 1911 por el Dr. Alejandro del Río Soto-Aguilar · 115 años de historia
+  </p>
+</footer>
+
+<script>
+// THEME MANAGEMENT
+const html = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const sunIcon = themeToggle.querySelector('.sun-icon');
+const moonIcon = themeToggle.querySelector('.moon-icon');
+
+// Initialize theme from localStorage or system preference
+let isDark = localStorage.getItem('theme') === 'dark' || 
+             (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+function updateTheme() {
+  if (isDark) {
+    html.classList.add('dark');
+    html.setAttribute('data-theme', 'dark');
+    sunIcon.classList.remove('hidden');
+    moonIcon.classList.add('hidden');
+  } else {
+    html.classList.remove('dark');
+    html.setAttribute('data-theme', 'light');
+    sunIcon.classList.add('hidden');
+    moonIcon.classList.remove('hidden');
+  }
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+themeToggle.addEventListener('click', () => {
+  isDark = !isDark;
+  updateTheme();
+});
+
+updateTheme();
+
+// NAVIGATION
+function navigateTo(viewId) {
+  // Hide all views
+  document.querySelectorAll('.view').forEach(view => {
+    view.classList.remove('active');
+  });
+  
+  // Show target view
+  const targetView = document.getElementById('view-' + viewId);
+  if (targetView) {
+    targetView.classList.add('active');
+  }
+  
+  // Update nav tabs
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.classList.remove('active');
+    if (tab.getAttribute('data-view') === viewId) {
+      tab.classList.add('active');
+    }
+  });
+  
+  // Update URL hash
+  window.location.hash = viewId;
+  
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Handle initial hash navigation
+function handleInitialHash() {
+  const hash = window.location.hash.substring(1);
+  if (hash && ['inicio', 'historia', 'recorrido', 'info', 'participa'].includes(hash)) {
+    navigateTo(hash);
+  }
+}
+
+window.addEventListener('DOMContentLoaded', handleInitialHash);
+window.addEventListener('hashchange', handleInitialHash);
+
+// FORM HANDLING — POST real a /api/participa (Supabase + Resend)
+const form = document.getElementById('participaForm');
+const successMsg = document.getElementById('successMsg');
+
+// Inyecta contenedor de error si no existe
+let errorMsg = document.getElementById('errorMsg');
+if (!errorMsg) {
+  errorMsg = document.createElement('div');
+  errorMsg.id = 'errorMsg';
+  errorMsg.className = 'hidden border rounded-lg p-4 text-sm font-semibold mt-3';
+  errorMsg.style.background = '#fff5f5';
+  errorMsg.style.borderColor = '#fca5a5';
+  errorMsg.style.color = '#991b1b';
+  successMsg.parentNode.insertBefore(errorMsg, successMsg.nextSibling);
+}
+
+function showError(msg) {
+  errorMsg.textContent = '⚠ ' + msg;
+  errorMsg.classList.remove('hidden');
+}
+function hideError() {
+  errorMsg.classList.add('hidden');
+  errorMsg.textContent = '';
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  hideError();
+  successMsg.classList.add('hidden');
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalHTML = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando…';
+
+  const payload = {
+    nombre: form.nombre.value.trim(),
+    vinculo: form.vinculo.value,
+    testimonio: form.testimonio.value.trim(),
+    anio: form.anio.value.trim(),
+    autorizacion: document.getElementById('autorizacion').checked,
+  };
+
+  try {
+    const res = await fetch('/api/participa', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
+    let data = {};
+    try { data = await res.json(); } catch (_) {}
+
+    if (!res.ok || !data.ok) {
+      throw new Error(data.error || 'No pudimos enviar tu testimonio. Inténtalo nuevamente.');
+    }
+
+    successMsg.classList.remove('hidden');
+    successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    submitBtn.textContent = '¡Enviado!';
+    form.reset();
+
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalHTML;
+      successMsg.classList.add('hidden');
+    }, 5000);
+  } catch (err) {
+    showError(err.message || 'Error de red. Verifica tu conexión.');
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalHTML;
+  }
+});
+
+// Update active tab styling
+const style = document.createElement('style');
+style.textContent = `
+  .nav-tab {
+    color: rgb(115 115 115 / 1);
+  }
+  .dark .nav-tab {
+    color: rgb(163 163 163 / 1);
+  }
+  .nav-tab.active {
+    background: white;
+    color: rgb(23 23 23 / 1);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  }
+  .dark .nav-tab.active {
+    background: rgb(38 38 38 / 1);
+    color: rgb(250 250 250 / 1);
+  }
+  .nav-tab:not(.active):hover {
+    color: rgb(23 23 23 / 1);
+    background: rgba(255,255,255,0.6);
+  }
+  .dark .nav-tab:not(.active):hover {
+    color: rgb(250 250 250 / 1);
+    background: rgba(38,38,38,0.6);
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+`;
+document.head.appendChild(style);
+</script>
+
+</body>
+</html>
