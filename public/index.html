@@ -163,6 +163,22 @@ h1, h2, h3, .font-display {
   border-color: #1c1916;
 }
 
+/* === Hero banner responsivo === */
+.hero-banner-img {
+  object-position: center;
+}
+/* En mobile vertical mostramos el lado izquierdo donde están las ilustraciones */
+@media (max-width: 768px) {
+  .hero-banner-img {
+    object-position: 28% center;
+  }
+}
+@media (max-width: 480px) {
+  .hero-banner-img {
+    object-position: 22% center;
+  }
+}
+
 /* === Logo tipográfico Día del Patrimonio === */
 .logo-typeset {
   text-align: center;
@@ -249,7 +265,7 @@ h1, h2, h3, .font-display {
     <img src="uploads/banner-home.jpg"
          alt=""
          aria-hidden="true"
-         class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
+         class="hero-banner-img absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
          onerror="this.style.display='none'">
 
     <!-- Veladura suave para legibilidad del contenido -->
