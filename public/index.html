@@ -220,11 +220,11 @@ h1, h2, h3, .font-display {
 <div id="view-inicio" class="view active">
   <!-- Hero -->
   <div class="relative overflow-hidden" style="min-height: 70vh; background-color: #FFA8E8;">
-    <!-- Banner ilustrado de fondo -->
+    <!-- Banner ilustrado de fondo (con fallback al banner anterior si banner-home.png aún no existe) -->
     <img src="uploads/banner-home.png" alt="" aria-hidden="true"
          class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
          style="opacity: 1;"
-         onerror="this.style.display='none'">
+         onerror="if(this.dataset.fb!=='1'){this.dataset.fb='1';this.src='uploads/Diseño sin título (5).png';}else{this.style.display='none';}">
 
     <!-- Veladura para legibilidad sobre las ilustraciones -->
     <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(255,168,232,0.05) 0%, rgba(255,168,232,0.55) 55%, rgba(255,168,232,0.85) 100%);"></div>
