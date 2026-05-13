@@ -461,22 +461,45 @@ h1, h2, h3, .font-display {
   <div class="max-w-4xl mx-auto px-6 py-12 sm:py-16">
     <!-- Header -->
     <div class="rounded-2xl border p-6 sm:p-8 mb-10" style="background: linear-gradient(135deg, var(--color-rojo-light), var(--color-dorado-light)); border-color: var(--color-rojo-mid);">
-      <h2 class="font-display text-2xl sm:text-3xl font-bold mb-3">🗺️ Recorrido Patrimonial</h2>
+      <div class="inline-block text-[11px] font-semibold uppercase tracking-wider mb-3 px-2.5 py-1 rounded-full" style="background: var(--color-rojo); color: white;">
+        Edición XXVII · La historia que compartimos
+      </div>
+      <h2 class="font-display text-2xl sm:text-3xl font-bold mb-3">🗺️ Recorrido Patrimonial — Posta Central</h2>
       <p class="text-neutral-700 dark:text-neutral-300 text-sm sm:text-base leading-relaxed max-w-2xl mb-4">
-        El Día del Patrimonio contará con 2 áreas temáticas interactivas y recorridos guiados. Ideal para conocer la historia y el alma del HUAP con tiempo y curiosidad.
+        El HUAP abre sus puertas en el marco del Día del Patrimonio Cultural 2026, organizado por el Ministerio de las Culturas, las Artes y el Patrimonio. Un recorrido por las áreas históricas, formativas y comunitarias del hospital — pensado para vivir el patrimonio sanitario chileno con tiempo y curiosidad.
       </p>
       <div class="flex flex-wrap gap-2">
         <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-rojo-light); color: var(--color-rojo);">
-          ⏱ 8:30 a 16:00 hrs
+          🗓 Sábado 30 y Domingo 31 de Mayo
         </span>
         <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-dorado-light); color: var(--color-dorado);">
-          📍 Gratis
+          🎟 Gratuito · sin entrada
         </span>
         <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-rojo-light); color: var(--color-rojo);">
-          🗓 Sábado 30 de Mayo
+          ⏱ Jornada diurna
+        </span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-dorado-light); color: var(--color-dorado);">
+          ♿ Accesible
         </span>
       </div>
     </div>
+
+    <!-- Sobre la convocatoria -->
+    <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 sm:p-7 mb-10 shadow-sm">
+      <h3 class="font-display text-lg sm:text-xl font-bold mb-3">Sobre el Día del Patrimonio</h3>
+      <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-3">
+        El <strong class="text-neutral-900 dark:text-white">Día del Patrimonio Cultural</strong> es una de las convocatorias ciudadanas más masivas y queridas de Chile. En 2026 celebramos su <strong class="text-neutral-900 dark:text-white">edición número 27</strong>, bajo el lema <em>"La historia que compartimos"</em>: un recordatorio de que el patrimonio no vive solo en libros o monumentos, sino también en oficios, memorias y espacios cotidianos como un hospital público.
+      </p>
+      <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+        Durante ese fin de semana, miles de espacios e instituciones de todas las regiones del país abren sus puertas con actividades <strong class="text-neutral-900 dark:text-white">gratuitas y sin entrada</strong>. La Posta Central — HUAP es uno de ellos: una <strong class="text-neutral-900 dark:text-white">apertura de espacio</strong> con recorrido patrimonial por sus áreas históricas y formativas.
+      </p>
+      <p class="text-xs text-neutral-500 dark:text-neutral-500 mt-3">
+        Programación oficial y horarios confirmados:
+        <a href="https://www.diadelpatrimonio.cl/" target="_blank" rel="noopener noreferrer" class="text-rojo hover:underline font-medium">diadelpatrimonio.cl</a>
+      </p>
+    </div>
+
+    <h3 class="font-display text-xl sm:text-2xl font-bold mb-5">Estaciones del recorrido</h3>
 
     <!-- Route Steps -->
     <div class="flex flex-col gap-4">
@@ -485,9 +508,12 @@ h1, h2, h3, .font-display {
         <div class="w-8 h-8 rounded-full bg-rojo text-white flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
         <div class="flex-1">
           <h3 class="font-semibold text-base sm:text-lg mb-2">Área Patrimonial</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-3">
+            Memoria institucional, archivos históricos y vestigios materiales que cuentan más de un siglo de servicio público en urgencias.
+          </p>
           <div class="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
-            <p><strong>Anatomía Patológica</strong> (Piso -1)</p>
-            <p><strong>Dirección</strong> (Piso 2)</p>
+            <p><strong class="text-neutral-900 dark:text-white">Anatomía Patológica</strong> · Piso −1 — muestra de instrumental y piezas docentes históricas.</p>
+            <p><strong class="text-neutral-900 dark:text-white">Dirección</strong> · Piso 2 — espacio patrimonial con documentación institucional y línea de tiempo del HUAP.</p>
           </div>
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: var(--color-rojo-light); color: var(--color-rojo);">
             🏛 Historia y documentos
@@ -500,16 +526,45 @@ h1, h2, h3, .font-display {
         <div class="w-8 h-8 rounded-full bg-rojo text-white flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
         <div class="flex-1">
           <h3 class="font-semibold text-base sm:text-lg mb-2">Área Educativa</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-3">
+            El HUAP es también campus clínico y formativo. Esta área muestra cómo el hospital enseña, investiga y forma a las próximas generaciones de profesionales de la salud.
+          </p>
           <div class="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
-            <p><strong>Banco de Sangre</strong> (Piso 1)</p>
-            <p><strong>Cine-Auditorio</strong> (Piso 2)</p>
-            <p><strong>RCP</strong> (Helipuerto)</p>
+            <p><strong class="text-neutral-900 dark:text-white">Banco de Sangre</strong> · Piso 1 — visita guiada y orientación sobre el rol de la donación voluntaria.</p>
+            <p><strong class="text-neutral-900 dark:text-white">Cine-Auditorio</strong> · Piso 2 — conversatorio patrimonial y exhibición audiovisual.</p>
+            <p><strong class="text-neutral-900 dark:text-white">RCP</strong> · Helipuerto — demostración y práctica abierta de reanimación cardiopulmonar.</p>
           </div>
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: var(--color-rojo-light); color: var(--color-rojo);">
             📚 Aprendizaje en salud
           </span>
         </div>
       </div>
+
+      <!-- Step 3: SAMU y Comunidad -->
+      <div class="flex gap-4 sm:gap-5 items-start bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-5 shadow-sm">
+        <div class="w-8 h-8 rounded-full bg-rojo text-white flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-base sm:text-lg mb-2">SAMU y Atención Prehospitalaria</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-3">
+            El Servicio de Atención Médica de Urgencia (SAMU 131) es parte estructural del HUAP. Una mirada al rol prehospitalario que articula la respuesta de urgencias en la Región Metropolitana.
+          </p>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: var(--color-dorado-light); color: var(--color-dorado);">
+            🚑 Servicio comunitario
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recomendaciones -->
+    <div class="mt-10 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 p-6">
+      <h3 class="font-display text-lg font-bold mb-4">Recomendaciones para visitar</h3>
+      <ul class="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+        <li class="flex gap-2"><span class="text-rojo flex-shrink-0">•</span> Llegar con anticipación: el ingreso patrimonial es por la fachada histórica de <strong class="text-neutral-900 dark:text-white">Av. Portugal 125</strong>, distinta del ingreso de urgencias.</li>
+        <li class="flex gap-2"><span class="text-rojo flex-shrink-0">•</span> Preferir transporte público: Metro Línea 1, estación <strong class="text-neutral-900 dark:text-white">Universidad Católica</strong> queda al lado del hospital.</li>
+        <li class="flex gap-2"><span class="text-rojo flex-shrink-0">•</span> Llevar agua y ropa cómoda. El recorrido implica caminar entre pisos y áreas.</li>
+        <li class="flex gap-2"><span class="text-rojo flex-shrink-0">•</span> Respetar las zonas asistenciales: el HUAP es un hospital de urgencia con atención activa 24/7.</li>
+        <li class="flex gap-2"><span class="text-rojo flex-shrink-0">•</span> Aforos limitados en visitas guiadas. Se atiende por orden de llegada.</li>
+      </ul>
     </div>
   </div>
 </div>
