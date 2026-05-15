@@ -163,6 +163,12 @@ h1, h2, h3, .font-display {
   border-color: #1c1916;
 }
 
+/* === Iconos oficiales (kit Día del Patrimonio) === */
+.iko { display: inline-block; vertical-align: middle; width: 1.15em; height: 1.15em; object-fit: contain; }
+.iko-sm { display: inline-block; vertical-align: middle; width: 18px; height: 18px; object-fit: contain; }
+.iko-md { display: block; width: 40px; height: 40px; object-fit: contain; }
+.iko-lg { display: block; width: 48px; height: 48px; object-fit: contain; }
+
 /* === Hero banner responsivo: panorámico full-width + logo superpuesto === */
 .hero-banner-wrap {
   display: block;
@@ -287,9 +293,7 @@ h1, h2, h3, .font-display {
       <!-- Badge fecha (fondo azul #1F59FF, texto blanco) -->
       <div class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-widest mb-8 shadow-xl"
            style="background: #1F59FF; color: #ffffff;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-        </svg>
+        <img src="uploads/iconos/icon-09.png" alt="" class="iko-sm">
         Sábado 30 de Mayo · 9:00 a 14:00 horas
       </div>
 
@@ -302,10 +306,7 @@ h1, h2, h3, .font-display {
       
       <!-- Info -->
       <div class="inline-flex items-center gap-3 rounded-2xl px-8 py-4 mb-8 shadow-xl" style="background: #1F59FF;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: #ffffff;">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-          <circle cx="12" cy="10" r="3"/>
-        </svg>
+        <img src="uploads/iconos/icon-08.png" alt="" class="iko-lg">
         <p class="font-display text-lg md:text-xl font-bold" style="color: #ffffff;">
           Curicó 345, Santiago Centro
         </p>
@@ -511,22 +512,22 @@ h1, h2, h3, .font-display {
       <div class="inline-block text-[11px] font-semibold uppercase tracking-wider mb-3 px-2.5 py-1 rounded-full" style="background: var(--color-rojo); color: white;">
         Edición XXVII · La historia que compartimos
       </div>
-      <h2 class="font-display text-2xl sm:text-3xl font-bold mb-3">🗺️ Recorrido Patrimonial — Posta Central</h2>
+      <h2 class="font-display text-2xl sm:text-3xl font-bold mb-3 inline-flex items-center gap-2"><img src="uploads/iconos/icon-02.png" alt="" class="iko" style="width:1.2em;height:1.2em"> Recorrido Patrimonial — Posta Central</h2>
       <p class="text-neutral-700 dark:text-neutral-300 text-sm sm:text-base leading-relaxed max-w-2xl mb-4">
         El HUAP abre sus puertas en el marco del Día del Patrimonio Cultural 2026, organizado por el Ministerio de las Culturas, las Artes y el Patrimonio. Un recorrido por las áreas históricas, formativas y comunitarias del hospital — pensado para vivir el patrimonio sanitario chileno con tiempo y curiosidad.
       </p>
       <div class="flex flex-wrap gap-2">
-        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-rojo-light); color: var(--color-rojo);">
-          🗓 Sábado 30 de Mayo
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-rojo-light); color: var(--color-rojo);">
+          <img src="uploads/iconos/icon-09.png" alt="" class="iko-sm"> Sábado 30 de Mayo
         </span>
-        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-dorado-light); color: var(--color-dorado);">
-          🎟 Gratuito · sin entrada
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-dorado-light); color: var(--color-dorado);">
+          <img src="uploads/iconos/icon-22.png" alt="" class="iko-sm"> Gratuito · sin entrada
         </span>
-        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-rojo-light); color: var(--color-rojo);">
-          ⏱ Jornada diurna
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-rojo-light); color: var(--color-rojo);">
+          <img src="uploads/iconos/icon-20.png" alt="" class="iko-sm"> Jornada diurna
         </span>
-        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-dorado-light); color: var(--color-dorado);">
-          ♿ Accesible
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold" style="background: var(--color-dorado-light); color: var(--color-dorado);">
+          <img src="uploads/iconos/icon-07.png" alt="" class="iko-sm"> Accesible
         </span>
       </div>
     </div>
@@ -578,8 +579,8 @@ h1, h2, h3, .font-display {
           <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
             Piso −1. Muestra de instrumental y piezas docentes históricas. Una mirada al patrimonio científico y médico del HUAP.
           </p>
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: rgba(31,89,255,0.12); color: #1F59FF;">
-            🏛 Patrimonio científico
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: rgba(31,89,255,0.12); color: #1F59FF;">
+            <img src="uploads/iconos/icon-04.png" alt="" class="iko-sm"> Patrimonio científico
           </span>
         </div>
       </div>
@@ -592,8 +593,8 @@ h1, h2, h3, .font-display {
           <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
             Piso 1. Visita guiada y orientación sobre el rol de la donación voluntaria de sangre, que sostiene la atención de urgencias del HUAP las 24 horas.
           </p>
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: rgba(31,89,255,0.12); color: #1F59FF;">
-            🩸 Donación voluntaria
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: rgba(31,89,255,0.12); color: #1F59FF;">
+            <img src="uploads/iconos/icon-12.png" alt="" class="iko-sm"> Donación voluntaria
           </span>
         </div>
       </div>
@@ -606,8 +607,8 @@ h1, h2, h3, .font-display {
           <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
             Piso 2 — Dirección. Espacio patrimonial con documentación institucional, fotografías y línea de tiempo del HUAP desde 1911 hasta hoy.
           </p>
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: rgba(31,89,255,0.12); color: #1F59FF;">
-            📚 Memoria institucional
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: rgba(31,89,255,0.12); color: #1F59FF;">
+            <img src="uploads/iconos/icon-03.png" alt="" class="iko-sm"> Memoria institucional
           </span>
         </div>
       </div>
@@ -620,8 +621,8 @@ h1, h2, h3, .font-display {
           <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
             Piso 2. Conversatorio patrimonial y exhibición audiovisual con testimonios de funcionarios, archivo fílmico y proyección sobre la historia social del hospital.
           </p>
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: rgba(31,89,255,0.12); color: #1F59FF;">
-            🎬 Audiovisual patrimonial
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: rgba(31,89,255,0.12); color: #1F59FF;">
+            <img src="uploads/iconos/icon-22.png" alt="" class="iko-sm"> Audiovisual patrimonial
           </span>
         </div>
       </div>
@@ -634,8 +635,8 @@ h1, h2, h3, .font-display {
           <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
             Demostración y práctica abierta de reanimación cardiopulmonar (RCP). Mirador al rol prehospitalario del SAMU 131 y al sistema de evacuación aérea del HUAP.
           </p>
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: rgba(31,89,255,0.12); color: #1F59FF;">
-            🚁 Atención de urgencia
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mt-3" style="background: rgba(31,89,255,0.12); color: #1F59FF;">
+            <img src="uploads/iconos/icon-11.png" alt="" class="iko-sm"> Atención de urgencia
           </span>
         </div>
       </div>
@@ -669,9 +670,7 @@ h1, h2, h3, .font-display {
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <!-- Card 1 -->
       <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm">
-        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background: var(--color-rojo-light); color: var(--color-rojo);">
-          📍
-        </div>
+        <img src="uploads/iconos/icon-08.png" alt="" class="iko-lg mb-4">
         <h3 class="font-display text-lg font-semibold mb-3">Dirección y acceso</h3>
         <address class="not-italic text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
           <strong class="text-neutral-900 dark:text-white">Av. Portugal 125</strong><br>
@@ -684,9 +683,7 @@ h1, h2, h3, .font-display {
 
       <!-- Card 2 -->
       <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm">
-        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background: var(--color-rojo-light); color: var(--color-rojo);">
-          🕐
-        </div>
+        <img src="uploads/iconos/icon-06.png" alt="" class="iko-lg mb-4">
         <h3 class="font-display text-lg font-semibold mb-3">Horario Día del Patrimonio</h3>
         <div class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
           <strong class="text-neutral-900 dark:text-white">Actividades patrimoniales:</strong><br>
@@ -694,15 +691,13 @@ h1, h2, h3, .font-display {
           <strong class="text-neutral-900 dark:text-white">Recorrido guiado:</strong><br>
           10:00 y 12:00 hrs (máx. 20 personas)<br><br>
           <strong class="text-neutral-900 dark:text-white">Conversatorio:</strong> 13:00 hrs<br>
-          <span class="text-rojo font-semibold">⚡ Urgencias activas 24/7</span>
+          <span class="text-rojo font-semibold inline-flex items-center gap-1"><img src="uploads/iconos/icon-11.png" alt="" class="iko-sm"> Urgencias activas 24/7</span>
         </div>
       </div>
 
       <!-- Card 3 -->
       <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm">
-        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background: var(--color-rojo-light); color: var(--color-rojo);">
-          📞
-        </div>
+        <img src="uploads/iconos/icon-10.png" alt="" class="iko-lg mb-4">
         <h3 class="font-display text-lg font-semibold mb-3">Contacto institucional</h3>
         <div class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
           <strong class="text-neutral-900 dark:text-white">Sitio web:</strong><br>
@@ -715,9 +710,7 @@ h1, h2, h3, .font-display {
 
       <!-- Card 4 -->
       <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm">
-        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background: var(--color-rojo-light); color: var(--color-rojo);">
-          🩸
-        </div>
+        <img src="uploads/iconos/icon-12.png" alt="" class="iko-lg mb-4">
         <h3 class="font-display text-lg font-semibold mb-3">Donar sangre</h3>
         <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
           El HUAP cuenta con banco de sangre permanente. Donar es un acto patrimonial también.<br><br>
@@ -727,9 +720,7 @@ h1, h2, h3, .font-display {
 
       <!-- Card 5 -->
       <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm">
-        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background: var(--color-rojo-light); color: var(--color-rojo);">
-          🤝
-        </div>
+        <img src="uploads/iconos/icon-05.png" alt="" class="iko-lg mb-4">
         <h3 class="font-display text-lg font-semibold mb-3">Participación ciudadana</h3>
         <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
           ¿Quieres involucrarte con el HUAP? La Unidad de Participación Ciudadana coordina voluntariados, convenios académicos y actividades comunitarias.<br><br>
@@ -739,9 +730,7 @@ h1, h2, h3, .font-display {
 
       <!-- Card 6 -->
       <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 shadow-sm">
-        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background: var(--color-rojo-light); color: var(--color-rojo);">
-          ♿
-        </div>
+        <img src="uploads/iconos/icon-07.png" alt="" class="iko-lg mb-4">
         <h3 class="font-display text-lg font-semibold mb-3">Accesibilidad</h3>
         <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
           El recorrido patrimonial está diseñado para ser accesible. Comunica necesidades específicas al momento de la inscripción.<br><br>
@@ -791,7 +780,7 @@ h1, h2, h3, .font-display {
         <div class="lg:col-span-2 space-y-4">
           <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-5">
             <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0" style="background: var(--color-rojo-light); color: var(--color-rojo);">🚇</div>
+              <img src="uploads/iconos/icon-15.png" alt="" class="w-9 h-9 flex-shrink-0">
               <div>
                 <h4 class="font-semibold mb-1">En Metro</h4>
                 <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
@@ -803,7 +792,7 @@ h1, h2, h3, .font-display {
 
           <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-5">
             <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0" style="background: var(--color-rojo-light); color: var(--color-rojo);">🚌</div>
+              <img src="uploads/iconos/icon-16.png" alt="" class="w-9 h-9 flex-shrink-0">
               <div>
                 <h4 class="font-semibold mb-1">En micro / Red Movilidad</h4>
                 <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
@@ -815,7 +804,7 @@ h1, h2, h3, .font-display {
 
           <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-5">
             <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0" style="background: var(--color-rojo-light); color: var(--color-rojo);">🚗</div>
+              <img src="uploads/iconos/icon-17.png" alt="" class="w-9 h-9 flex-shrink-0">
               <div>
                 <h4 class="font-semibold mb-1">En auto</h4>
                 <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
@@ -827,7 +816,7 @@ h1, h2, h3, .font-display {
 
           <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-5">
             <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0" style="background: var(--color-rojo-light); color: var(--color-rojo);">📍</div>
+              <img src="uploads/iconos/icon-08.png" alt="" class="w-9 h-9 flex-shrink-0">
               <div>
                 <h4 class="font-semibold mb-1">Referencias urbanas</h4>
                 <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
@@ -960,8 +949,8 @@ h1, h2, h3, .font-display {
     <div class="grid sm:grid-cols-2 gap-6">
       <!-- CTA 1 -->
       <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden shadow-sm">
-        <div class="aspect-video flex items-center justify-center text-6xl" style="background: var(--color-rojo-light);">
-          🩸
+        <div class="aspect-video flex items-center justify-center p-6" style="background: var(--color-rojo-light);">
+          <img src="uploads/iconos/icon-12.png" alt="" class="h-full w-auto">
         </div>
         <div class="p-6">
           <div class="text-xs font-semibold uppercase tracking-wider text-rojo mb-2">Dona sangre</div>
@@ -974,8 +963,8 @@ h1, h2, h3, .font-display {
 
       <!-- CTA 2 -->
       <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden shadow-sm">
-        <div class="aspect-video flex items-center justify-center text-6xl bg-emerald-50 dark:bg-emerald-950/30">
-          🤲
+        <div class="aspect-video flex items-center justify-center p-6" style="background: #FFE8F0;">
+          <img src="uploads/iconos/icon-13.png" alt="" class="h-full w-auto">
         </div>
         <div class="p-6">
           <div class="text-xs font-semibold uppercase tracking-wider text-rojo mb-2">Voluntariado</div>
