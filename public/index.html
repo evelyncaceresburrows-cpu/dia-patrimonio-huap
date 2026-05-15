@@ -267,17 +267,18 @@ h1, h2, h3, .font-display {
   <div class="relative" style="background-color: #FFA8E8;">
     <!-- Banner panorámico + logo superpuesto (ambos escalan juntos en responsive) -->
     <div class="hero-banner-wrap relative w-full">
-      <!-- Banner ilustrado panorámico 2240x418 a ancho completo -->
-      <img src="uploads/banner-home.jpg"
+      <!-- Banner ilustrado PNG transparente (2640x1485, ratio 16:9, centro vacío) -->
+      <img src="uploads/banner-home.png"
            alt="Día del Patrimonio en la Posta Central"
-           class="hero-banner-img block w-full h-auto select-none">
+           class="hero-banner-img block w-full h-auto select-none"
+           onerror="this.src='uploads/banner-home.jpg';">
 
-      <!-- Logo superpuesto sobre el banner -->
+      <!-- Logo superpuesto en el centro vacío del banner -->
       <img src="uploads/logo-dia-patrimonio.png"
            alt=""
            aria-hidden="true"
            class="hero-logo-overlay absolute select-none"
-           style="left: 50%; top: 50%; transform: translate(-50%, -50%); width: 48%; max-width: 720px; filter: drop-shadow(0 4px 18px rgba(255,255,255,0.5));">
+           style="left: 50%; top: 50%; transform: translate(-50%, -50%); width: 55%; max-width: 720px; filter: drop-shadow(0 4px 18px rgba(255,255,255,0.5));">
     </div>
 
     <!-- Bloque inferior sobre fondo pink (badge fecha + subtítulo + info + stats) -->
