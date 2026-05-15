@@ -163,19 +163,23 @@ h1, h2, h3, .font-display {
   border-color: #1c1916;
 }
 
-/* === Hero banner responsivo === */
+/* === Hero banner responsivo: panorámico full-width + logo superpuesto === */
+.hero-banner-wrap {
+  display: block;
+}
 .hero-banner-img {
-  object-position: center;
+  display: block;
+  width: 100%;
+  height: auto;
 }
-/* En mobile vertical mostramos el lado izquierdo donde están las ilustraciones */
-@media (max-width: 768px) {
-  .hero-banner-img {
-    object-position: 28% center;
-  }
+.hero-logo-overlay {
+  pointer-events: none;
 }
-@media (max-width: 480px) {
-  .hero-banner-img {
-    object-position: 22% center;
+/* En mobile el banner panorámico se ve muy bajo (proporción 5.36:1).
+   Achicamos el logo para que respire dentro del banner. */
+@media (max-width: 640px) {
+  .hero-logo-overlay {
+    width: 60%;
   }
 }
 
@@ -260,15 +264,24 @@ h1, h2, h3, .font-display {
 <!-- VISTA INICIO -->
 <div id="view-inicio" class="view active">
   <!-- Hero -->
-  <div class="relative overflow-hidden" style="background-color: #FFA8E8; min-height: 70vh;">
-    <!-- Banner ilustrado de fondo (PNG con transparencia, 2640x1485) -->
-    <img src="uploads/banner-home.png"
-         alt=""
-         aria-hidden="true"
-         class="hero-banner-img absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-         onerror="this.src='uploads/banner-home.jpg';this.onerror=function(){this.style.display='none';};">
+  <div class="relative" style="background-color: #FFA8E8;">
+    <!-- Banner panorámico + logo superpuesto (ambos escalan juntos en responsive) -->
+    <div class="hero-banner-wrap relative w-full">
+      <!-- Banner ilustrado panorámico 2240x418 a ancho completo -->
+      <img src="uploads/banner-home.jpg"
+           alt="Día del Patrimonio en la Posta Central"
+           class="hero-banner-img block w-full h-auto select-none">
 
-    <div class="relative max-w-7xl mx-auto px-6 sm:px-12 py-16 sm:py-24 z-10">
+      <!-- Logo superpuesto sobre el banner -->
+      <img src="uploads/logo-dia-patrimonio.png"
+           alt=""
+           aria-hidden="true"
+           class="hero-logo-overlay absolute select-none"
+           style="left: 50%; top: 50%; transform: translate(-50%, -50%); width: 48%; max-width: 720px; filter: drop-shadow(0 4px 18px rgba(255,255,255,0.5));">
+    </div>
+
+    <!-- Bloque inferior sobre fondo pink (badge fecha + subtítulo + info + stats) -->
+    <div class="relative max-w-7xl mx-auto px-6 sm:px-12 pt-8 sm:pt-10 pb-16 sm:pb-24">
       <div class="max-w-3xl mx-auto text-center">
       <!-- Badge fecha (fondo azul #1F59FF, texto blanco) -->
       <div class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-widest mb-8 shadow-xl"
@@ -279,11 +292,7 @@ h1, h2, h3, .font-display {
         Sábado 30 de Mayo · 9:00 a 14:00 horas
       </div>
 
-      <!-- Logo oficial Día del Patrimonio en la Posta Central -->
-      <img src="uploads/logo-dia-patrimonio.png"
-           alt="Día del Patrimonio en la Posta Central"
-           class="block mx-auto w-full max-w-2xl lg:max-w-3xl h-auto mb-6 select-none"
-           style="filter: drop-shadow(0 6px 24px rgba(255,255,255,0.45));">
+      <!-- (logo movido al banner superior) -->
 
       <!-- Subtitle -->
       <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-semibold" style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.3);">
