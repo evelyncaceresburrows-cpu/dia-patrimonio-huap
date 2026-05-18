@@ -166,6 +166,24 @@ h1, h2, h3, .font-display {
   border-color: #1c1916;
 }
 
+/* === iOS Safari: prevenir zoom al hacer focus en inputs (font-size ≥16px) === */
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* === Touch targets: mínimo 44px (WCAG) en links y botones === */
+button, a.btn, [role="button"] {
+  min-height: 44px;
+}
+
 /* === Iconos oficiales (kit Día del Patrimonio) === */
 .iko { display: inline-block; vertical-align: middle; width: 1.15em; height: 1.15em; object-fit: contain; }
 .iko-sm { display: inline-block; vertical-align: middle; width: 18px; height: 18px; object-fit: contain; }
@@ -304,8 +322,8 @@ h1, h2, h3, .font-display {
 
       <!-- (logo movido al banner superior) -->
 
-      <!-- Subtitle -->
-      <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-semibold" style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.3);">
+      <!-- Subtitle (fluid type: 16-20px) -->
+      <p class="max-w-2xl mx-auto mb-10 leading-relaxed font-semibold" style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.3); font-size: clamp(1rem, 1.4vw + 0.5rem, 1.25rem);">
         Más de 115 años siendo el corazón de la salud pública de Chile. Conoce la historia, el legado y la misión del Hospital de Urgencia Asistencia Pública.
       </p>
       
@@ -322,15 +340,15 @@ h1, h2, h3, .font-display {
 
       <!-- Stats -->
       <div class="flex flex-wrap justify-center gap-4 sm:gap-6 relative">
-        <div class="text-center rounded-2xl px-8 py-5 shadow-xl" style="background: #ffffff;">
+        <div class="text-center rounded-2xl px-5 sm:px-8 py-4 sm:py-5 shadow-xl" style="background: #ffffff;">
           <div class="font-display text-4xl sm:text-5xl font-bold mb-1" style="color: #1F59FF;">1911</div>
           <div class="text-xs uppercase tracking-widest font-bold" style="color: #1F59FF;">Fundación</div>
         </div>
-        <div class="text-center rounded-2xl px-8 py-5 shadow-xl" style="background: #ffffff;">
+        <div class="text-center rounded-2xl px-5 sm:px-8 py-4 sm:py-5 shadow-xl" style="background: #ffffff;">
           <div class="font-display text-4xl sm:text-5xl font-bold mb-1" style="color: #1F59FF;">115+</div>
           <div class="text-xs uppercase tracking-widest font-bold" style="color: #1F59FF;">Años</div>
         </div>
-        <div class="text-center rounded-2xl px-8 py-5 shadow-xl" style="background: #ffffff;">
+        <div class="text-center rounded-2xl px-5 sm:px-8 py-4 sm:py-5 shadow-xl" style="background: #ffffff;">
           <div class="font-display text-4xl sm:text-5xl font-bold mb-1" style="color: #1F59FF;">24/7</div>
           <div class="text-xs uppercase tracking-widest font-bold" style="color: #1F59FF;">Activos</div>
         </div>
@@ -562,7 +580,7 @@ h1, h2, h3, .font-display {
         Mapa oficial de las 5 estaciones del recorrido patrimonial. Tocá la imagen para verla en grande.
       </p>
       <a href="uploads/mapa-recorrido.jpg" target="_blank" rel="noopener noreferrer"
-         class="block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow border-4"
+         class="block mx-auto rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow border-4 w-full sm:max-w-md md:max-w-lg lg:max-w-xl"
          style="border-color: #1F59FF; background: #FFA8E8;">
         <img src="uploads/mapa-recorrido.jpg"
              alt="Plano del recorrido patrimonial Día del Patrimonio Posta Central — 5 estaciones: Anatomía Patológica, Banco de Sangre, Archivo Histórico, Cinema y Helipuerto"
@@ -758,7 +776,7 @@ h1, h2, h3, .font-display {
 
       <div class="grid lg:grid-cols-5 gap-6">
         <!-- Mapa -->
-        <div class="lg:col-span-3">
+        <div class="lg:col-span-3 order-1">
           <div class="relative w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-sm" style="aspect-ratio: 16 / 10;">
             <iframe
               title="Mapa Hospital de Urgencia Asistencia Pública (HUAP / Posta Central) — Curicó 345, Santiago Centro"
@@ -771,13 +789,13 @@ h1, h2, h3, .font-display {
           <div class="mt-3 flex flex-wrap gap-3 text-sm">
             <a href="https://www.openstreetmap.org/?mlat=-33.44070&amp;mlon=-70.63600#map=17/-33.44070/-70.63600"
                target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
+               class="inline-flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Ver mapa en OpenStreetMap
             </a>
             <a href="https://www.google.com/maps/search/?api=1&amp;query=Hospital+de+Urgencia+Asistencia+P%C3%BAblica+HUAP+Curic%C3%B3+345+Santiago"
                target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rojo hover:bg-rojo-hover text-white transition-colors">
+               class="inline-flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-full bg-rojo hover:bg-rojo-hover text-white transition-colors">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
               Abrir en Google Maps
             </a>
@@ -785,7 +803,7 @@ h1, h2, h3, .font-display {
         </div>
 
         <!-- Indicaciones -->
-        <div class="lg:col-span-2 space-y-4">
+        <div class="lg:col-span-2 order-2 grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
           <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-5">
             <div class="flex items-start gap-3">
               <img src="uploads/iconos/icon-15.png" alt="" class="w-9 h-9 flex-shrink-0">
@@ -1002,22 +1020,22 @@ h1, h2, h3, .font-display {
     <p class="text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-500 mb-3">Compartir este sitio</p>
     <div class="flex justify-center gap-3 flex-wrap">
       <a id="shareWhatsApp" href="#" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#25D366] hover:opacity-90 text-white text-sm font-medium transition-opacity">
+         class="inline-flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-full bg-[#25D366] hover:opacity-90 text-white text-sm font-medium transition-opacity">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
       <a id="shareFacebook" href="#" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1877F2] hover:opacity-90 text-white text-sm font-medium transition-opacity">
+         class="inline-flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-full bg-[#1877F2] hover:opacity-90 text-white text-sm font-medium transition-opacity">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         Facebook
       </a>
       <a id="shareX" href="#" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900 hover:bg-neutral-700 text-white text-sm font-medium transition-colors">
+         class="inline-flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-full bg-neutral-900 hover:bg-neutral-700 text-white text-sm font-medium transition-colors">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         X (Twitter)
       </a>
       <button id="shareCopy" type="button"
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-sm font-medium transition-colors">
+              class="inline-flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-sm font-medium transition-colors">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         Copiar enlace
       </button>
